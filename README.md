@@ -21,7 +21,7 @@ Examples of pure canvas animation:
 
 [Particle effects using canvas blend modes](http://thisgoodboy.com/elCanvas/_tests/FF_board_clicker/index_manual.html)
 
-[Using images/shapes/custom shapes](http://thisgoodboy.com/elCanvas/_tests/bot_message_waiting_for_oponent/﻿)
+[Using images/shapes/custom shapes](http://www.thisgoodboy.com/elCanvas/_tests/bot_message_waiting_for_oponent/)
 
 (Check out the tests folder and examples folder for more examples)
 
