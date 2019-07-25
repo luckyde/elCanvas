@@ -1,5 +1,18 @@
 # elCanvas
-A lightweight library to support basic canvas shape drawing while having an object list you can control
+A lightweight library to support basic canvas shape drawing while having an object list you can control!
+
+Filesize of minified library: **14kb**
+
+Feel fee to post feedback and improvement suggestions, pull, modify as you wish :)
+
+Examples of pure canvas animation
+![](_utility/wordseeker.gif) ![](_utility/celebratorymoments.gif) ![](_utility/solobot.gif)
+
+I've been trying to push how much I can animate in very little filesize for a long time, and while DOM and SVGs are pretty good i never could get the same performance results as when I was animating in a canvas context. So I built this mini library so that I can have a sudo object system where you animate your objects e.g. var mycircle = new el.circle() and on update() it updates the canvas context with its properties. It works with whatever animation tech you want as long as you feed into the loop the update() function.
+
+I chose GSAP since I could directly feed the update refresher into a timeline like this
+var myCanvasTimeline = new TimelineMax({onUpdate:el.update}) 
+
 
 ## Basics
 
