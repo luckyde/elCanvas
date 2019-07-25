@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Preview</title>
+	<meta charset='utf-8'>
+	<meta name='author' content='Lucky'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
+ 	<link rel="stylesheet" href="css/setup.css" type="text/css" charset="utf-8" />
+	<!-- needed GSAP library,plus modifiers plugin-->
+	<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ModifiersPlugin.min.js"></script>
+
+	<!-- el canvas library -->
+	<script src="../../lib/elCanvas.js"></script>
+
+	<script src="js/physicsjs/physicsjs.min.js"></script>
+	<script src="js/physicsjs/behaviors/edge-collision-detection.js"></script>
+	<script src="js/physicsjs/behaviors/body-impulse-response.js"></script>
+	<script src="js/physicsjs/behaviors/body-collision-detection.js"></script>
+	<script src="js/physicsjs/behaviors/sweep-prune.js"></script>
+	<script src="js/physicsjs/behaviors/constant-acceleration.js"></script>
+	<script src="js/physicsjs/bodies/circle.js"></script>
+	<script src="js/physicsjs/geometries/circle.js"></script>
+	<script src="js/physicsjs/bodies/rectangle.js"></script>
+	<script src="js/physicsjs/geometries/rectangle.js"></script>
+	<script src="js/physicsjs/renderers/canvas.js"></script>
+	<script src="js/physicsjs_elCanvas.js"></script>
+	<script src="js/debug.js"></script>
+	<script src="js/setup.js"></script>
+
+	<script src="js/el_animation.js"></script>
+	<style media="screen">
+		body{
+			background: gray;
+		}
+		#elCanvas{
+			background: white;
+		}
+	</style>
+
+</head>
+<body onload='setup()'>
+
+	<canvas id="elCanvas" width="700" height="700"></canvas>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "elcanvas",
+  "version": "1.0.0",
+  "description": "Easily create elements and animate them in canvas",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github-ca.corp.zynga.com/WordsWithFriends/elCanvas.git"
+  },
+  "author": "Lucky Dee",
+  "license": "MIT",
+  "dependencies": {
+    "js-beautify": "^1.8.9"
+  }
+}

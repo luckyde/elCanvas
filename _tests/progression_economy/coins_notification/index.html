@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Preview</title>
+	<meta charset='utf-8'>
+	<meta name='author' content='Lucky'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
+ 	<link rel="stylesheet" href="css/setup.css" type="text/css" charset="utf-8" />
+	<!-- needed GSAP library,plus modifiers plugin-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="js/ModifiersPlugin.min.js"></script>
+	<!-- el canvas library -->
+	 <script src="../../../lib/elCanvas.js"></script>
+	<!--<script src="../../lib/elCanvas_test.js"></script>-->
+
+	<script src="js/setup.js"></script>
+
+	<!-- <script src="js/el_util_star_burst.js"></script> -->
+
+	<script src="js/el_util_custom_shapes.js"></script>
+
+	<script src="js/el_animation.js"></script>
+
+	<style>
+	#game{
+		background:#ffffff;
+		width:670px;
+		height:1176px;
+		background: url('images/bg.jpg');
+		position: relative;
+		overflow: hidden;
+	}
+	#elCanvas{
+		width:800px;
+		height:800px;
+		left:-65px;
+		top:-47px;
+	}
+	#game>*{
+		position: absolute;
+	}
+	#confirm_btn{
+		background: #FFFFFF;
+		border-radius: 15px;
+		font-family: 'museo500';
+		font-size: 32px;
+		color: #1D1D1D;
+		letter-spacing: 0;
+		text-align: center;
+		line-height: 64px;
+		margin:0 auto;
+		width:461px;
+		height:72px;
+		left:104px;
+		top:978px;
+	}
+	#info_text{
+		font-family: 'museo700';
+		font-size: 48px;
+		color: #FFFFFF;
+		text-align: center;
+		width:60%;
+		left:20%;
+		top:687px;
+	}
+	#info_subtext{
+		font-family: 'museo300';
+		font-size: 32px;
+		color: #FFFFFF;
+		letter-spacing: 0;
+		text-align: center;
+		line-height: 42px;
+		top:825px;
+		width:60%;
+		left:20%;
+
+	}
+	</style>
+</head>
+<body>
+
+	<script> window.onload=setup;	</script>
+	<div id="game">
+		<canvas id="elCanvas" width="800" height="800"></canvas>
+		<div id="info_text">Introducing Coins & Power Ups</div>
+		<div id="info_subtext">Use the coins you get from playing to buy Power Ups!</div>
+		<div id='confirm_btn'>Great!</div>
+
+	</div>
+
+
+</body>
+</html>

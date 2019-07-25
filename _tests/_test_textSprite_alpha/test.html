@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Preview</title>
+	<meta charset='utf-8'>
+	<meta name='author' content='Lucky'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
+ 	<link rel="stylesheet" href="css/setup.css" type="text/css" charset="utf-8" />
+	<!-- needed GSAP library,plus modifiers plugin-->
+	<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ModifiersPlugin.min.js"></script>
+
+	<!-- el canvas library -->
+	 <script src="../../lib/elCanvas.js"></script>
+	 <script src="fonts/font4/Text_sprite.json"></script>
+	<!--<script src="../../lib/elCanvas_test.js"></script>-->
+
+	<!-- <script src="js/el_util_star_burst.js"></script> -->
+<script type="text/javascript">
+
+</script>
+	<script src="js/el_util_custom_shapes.js"></script>
+
+
+	<style>
+		#elCanvas{
+			background:white;
+		}
+	</style>
+</head>
+<body>
+
+	<script> </script>
+
+	<div id="game" class='game'>
+		<div  style="top: 0; left: 0; width: 100%; height: 100%; " class="view">
+			<canvas id="elCanvas" width="500" height="500"></canvas>
+			<img src="fonts/font3/font3.png" id="imgsource" width="500" height="500"/ >
+		</div>
+	</div>
+<script type="text/javascript">
+
+var canvas = document.getElementById('elCanvas'),
+		context = canvas.getContext('2d');
+var img = document.getElementById('imgsource');
+
+var drawSprite = function(img,data,position){
+		context.drawImage(
+			img,
+			data.x,
+			data.y,
+			data.width,
+			data.height,
+			position.x*position.scale, position.y*position.scale,
+			data.width*position.scale,
+			data.height*position.scale
+		);
+	}
+
+
+
+	// space is a special case
+	// letterDictionary[' ']={
+	// 	content:' ',
+	// 	width:20,
+	// 	height:20,
+	// 	x:0,
+	// 	y:0,
+	// }
+	// reference data
+	var sampleImage = img;
+	var placePosition = {x:20,y:40}
+
+	// make new sentence data
+	// backup info
+	var spriteText_defaults={ text:'BLANK',
+		letterSpacing:0,
+		lineHeight:1, scale:1,
+		x:0,y:0,width:canvas.width,height:canvas.height
+	}
+
+	var sampleChunk={
+		text:'A ABC',
+		width:400,
+		height:300,
+		x:20,
+		y:30,
+		letterSpacing:0,
+		lineHeight:0,scale:1
+	}
+
+	 for (var key  in spriteText_defaults) {
+		if (!sampleChunk[key]) {
+				sampleChunk[key] = spriteText_defaults[key];
+		}
+	}
+	// convert array to array where each child is a letter
+	var obj_dictionary=[];
+	for(var i=0;i<dictionary.length;i++){
+		obj_dictionary[dictionary[i].letter]=dictionary[i]
+	}
+
+
+	function spriteText(refObject){
+		var ref= refObject;
+
+		// below to be the beggining of the function
+		var splitSentence = ref.text.split('')
+		// make the position innitally match the place location
+		var positionData = {x:ref.x,y:ref.y,scale:ref.scale}
+		for(var y=0;y<splitSentence.length;y++){
+			// get letter
+			var letter = splitSentence[y];
+			var dictionaryData = obj_dictionary[letter]
+
+			//dictionary
+			// get data from letter
+			if(dictionaryData){
+					drawSprite(sampleImage,dictionaryData, positionData)
+			//increase the x based off the width of the current letter AFTER its drawn it
+			positionData.x+=(dictionaryData.width+ref.letterSpacing);
+
+				// check if its getting to big for its britches, if so make it go to a new line
+				if(positionData.x>(ref.x+ref.width)){
+					 positionData.y+=(dictionaryData.height*ref.lineHeight);
+					 positionData.x=ref.x;
+				}
+			}
+		}
+	}
+
+	var testText = new spriteText(sampleChunk)
+
+
+</script>
+
+</body>
+</html>
