@@ -10,6 +10,7 @@ Examples of pure canvas animation:
 ![](_utility/wordseeker.gif)
 ![](_utility/celebratorymoments.gif)
 ![](_utility/solobot.gif)
+(Check out the tests folder and examples folder for more examples)
 
 I've been trying to push how much I can animate in very little filesize for a long time, and while DOM and SVGs are pretty good i never could get the same performance results as when I was animating in a canvas context. So I built this mini library so that I can have a sudo object system where you animate your objects e.g. var mycircle = new el.circle() and on update() it updates the canvas context with its properties. It works with whatever animation tech you want as long as you feed into the loop the update() function.
 
