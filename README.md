@@ -12,10 +12,15 @@ Examples of pure canvas animation:
 ![](_utility/solobot.gif)
 
 **Live Examples:**
+
 [Parenting / Character animation](http://thisgoodboy.com/elCanvas/_tests/SoloBot_intro/)
+
 [Logo Animation](http://www.thisgoodboy.com/elCanvas/_tests/_word_seeker_logo/)
+
 [Text animation (CLICK on the gray space over and over for different animations)](http://www.thisgoodboy.com/elCanvas/_tests/el_canvas_30points_v3/)
+
 [Particle effects using canvas blend modes](http://thisgoodboy.com/elCanvas/_tests/FF_board_clicker/index_manual.html)
+
 [Using images/shapes/custom shapes](http://thisgoodboy.com/elCanvas/_tests/bot_message_waiting_for_oponent/﻿)
 
 (Check out the tests folder and examples folder for more examples)
