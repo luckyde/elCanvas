@@ -11,6 +11,13 @@ Examples of pure canvas animation:
 ![](_utility/celebratorymoments.gif)
 ![](_utility/solobot.gif)
 
+**Live Examples:**
+[Parenting / Character animation](http://thisgoodboy.com/elCanvas/_tests/SoloBot_intro/)
+[Logo Animation](http://www.thisgoodboy.com/elCanvas/_tests/_word_seeker_logo/)
+[Text animation (CLICK on the gray space over and over for different animations)](http://www.thisgoodboy.com/elCanvas/_tests/el_canvas_30points_v3/)
+[Particle effects using canvas blend modes](http://thisgoodboy.com/elCanvas/_tests/FF_board_clicker/index_manual.html)
+[Using images/shapes/custom shapes](http://thisgoodboy.com/elCanvas/_tests/bot_message_waiting_for_oponent/﻿)
+
 (Check out the tests folder and examples folder for more examples)
 
 I've been trying to push how much I can animate in very little filesize for a long time, and while DOM and SVGs are pretty good i never could get the same performance results as when I was animating in a canvas context. So I built this mini library so that I can have a sudo object system where you animate your objects e.g. var mycircle = new el.circle() and on update() it updates the canvas context with its properties. It works with whatever animation tech you want as long as you feed into the loop the update() function.
