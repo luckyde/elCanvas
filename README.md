@@ -1,9 +1,10 @@
+
 # elCanvas
 A lightweight library to support basic canvas shape drawing while having an object list you can control!
 
 Filesize of minified library: **14kb**
 
-Feel fee to post feedback and improvement suggestions, pull, modify as you wish :)
+Feel free to post feedback and improvement suggestions, pull, modify as you wish :)
 
 Examples of pure canvas animation:
 
@@ -60,7 +61,7 @@ create a timeline, have the canvas update on update
     canvas_container.addEventListener('click',function(){ test_tl.play(0);});
 
  ## El properties
- You can optinally start elCanvas centered like so
+ You can optionally start elCanvas centered like so
 
    	this.el = new elCanvas(canvas_container,{AlignToCenter:true});
 
@@ -79,7 +80,7 @@ You can animate the objects the same way you animate dom elements, using most of
 
 Would animate this the same way you would animate it in dom
 ### Types of shapes
-below are the currently suported shape types. Remember to create them with new el.type e.g.
+below are the currently supported shape types. Remember to create them with new el.type e.g.
 
 `var myCircle = new el.circle({x:20, y:20, radius:50 ,style: {fillStyle'red'}});`
 
@@ -89,7 +90,7 @@ rect() | rectangle type
 circle() | circle type, supports radius for size
 text() | text type
 image() | image type, image needs to be preloaded first, passed into ID e.g. {id:'test'}
-ine() | basic line , uses x1,x2,y1,y2 e.g. pass in {x1:0, y1:0, x2: 100, y2: 100}
+line() | basic line , uses x1,x2,y1,y2 e.g. pass in {x1:0, y1:0, x2: 100, y2: 100}
 quadLine() | shorthand for quadLine e.g. pass in {x1:240,y1:240,qx:-50,qy:-50,x2:200,y2:150}
 shape() | custom shape, pass in custom shape data, see below for example
 
@@ -122,7 +123,7 @@ scaleX, ScaleY | yes (But only if NOT animating scale, and vice-versa)
 rotation | yes
 opacity | yes
 skew | no
-parent | yes(specifiy only another el object)
+parent | yes(specify only another el object)
 globalcompositeoperation | yes
 transformOrigin | only percent values, width/height must be specified
 zIndex | yes (Only on creation)
@@ -224,7 +225,7 @@ such as
 
 
 ## Other things to note
-zIndex only gets checked once on the first update, so ideally it should be decalred on object declaration, if it's not it will just get created automatically based off draw order. So if you wish to change it mid animation use el.resetZIndex() , however I do not  recomend doing this as it is a taxing process if it's done over and over. Which is why I decided to only have it check innitially.
+zIndex only gets checked once on the first update, so ideally it should be declared on object declaration, if it's not it will just get created automatically based off draw order. So if you wish to change it mid animation use el.resetZIndex() , however I do not  recommend doing this as it is a taxing process if it's done over and over. Which is why I decided to only have it check initially.
 
 There is an object list at all times, so if you wish to check how many items there are on the stage at any time see el.objects which is an array of all objects on stage
 
