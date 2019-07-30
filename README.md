@@ -119,6 +119,7 @@ Property | Support
 x,y | yes
 top, left | no
 scale | yes
+skewX, skewY | yes  
 scaleX, ScaleY | yes (But only if NOT animating scale, and vice-versa)
 rotation | yes
 opacity | yes
