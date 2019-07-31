@@ -158,6 +158,13 @@ radius | yes, also takes individual sides e.g.,radius:{tl:20,tr:0,bl:2,br:40}
 
     var image = new el.image({id:'test'})
 
+  ##### svg
+
+
+    var hatPoints = "M58.2,81c0,0-3.1-29.6-3.5-75.4c0,0,73.2-18.9,141.5,12.3l-10.6,71l55.5,16.4c0,0-75.4,58.9-241.2-15.1L58.2,81z";
+    var hatShape = new el.svg({points:hatPoints,style:{fillStyle:"blue"}});
+
+
  ##### shape
 
     var shape = new el.shape({x:200,y:20})
