@@ -129,6 +129,7 @@ globalcompositeoperation | yes
 transformOrigin | only percent values, width/height must be specified
 zIndex | yes (Only on creation)
 radius | yes, also takes individual sides e.g.,radius:{tl:20,tr:0,bl:2,br:40}
+debug | shows the center position of the object, change it with transformOrigin(making sure youve set a width and height first)
 
 
 ### Types of shapes
