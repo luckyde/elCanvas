@@ -48,7 +48,7 @@ create an object
 
     var myCoolRectangle = new el.rect()
 
-call an udpate function to draw the frame
+call an update function to draw the frame
 
 	this.el.update()
 
