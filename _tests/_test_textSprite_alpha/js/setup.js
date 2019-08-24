@@ -1,6 +1,6 @@
 function gE(e){ return document.getElementById(e)};
 
-var canvas_container;
+var canvas_container, el;
 
 function setup(){
   // resize canvas to parent width and height, work around so the canvas size doesnt need to be hard typed in html
@@ -33,9 +33,9 @@ function animate(props){
 
  function reqListener(e) {
      treeData = JSON.parse(this.responseText);
-     this.el = new elCanvas(canvas_container, {images:props,spriteFonts:[treeData],AlignToCenter:false});
-     console.log(this.el);
-     var test_tl = new el_animation(this.el);
+     el = new elCanvas(canvas_container, {images:props,spriteFonts:[treeData],AlignToCenter:false});
+     console.log(el);
+     var test_tl = new el_animation(el);
 
  }
 
