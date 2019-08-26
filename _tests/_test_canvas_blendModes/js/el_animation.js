@@ -11,8 +11,8 @@ function el_animation(el, params){
 
   // creation
   var bgY= -el.height*0.1;
-  var bg=new el.image({zIndex:8,width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
-  var bgFake= new el.image({opacity:0,zIndex:9,globalCompositeOperation:'source-atop',width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
+  var bg=el.image({zIndex:8,width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
+  var bgFake= el.image({opacity:0,zIndex:9,globalCompositeOperation:'source-atop',width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
   // console.log(el.height);
 var textY= el.height*0.28;
 
@@ -24,21 +24,21 @@ var messageText = [];
     var message = sticker_msg[msg]
     var messageScale = 15/(message.length+6);
     messageText.push(
-      // new el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'xor',y:textY + (fontSize*msg+3)*messageScale,text:message,style:textStrokeStyle}),
-      // new el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'source-atop', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle})
-    new el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStrokeStyle}),
-      new el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle}),
-      new el.text({zIndex:9,scale:messageScale,globalCompositeOperation:'lighter', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle2})
+      // el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'xor',y:textY + (fontSize*msg+3)*messageScale,text:message,style:textStrokeStyle}),
+      // el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'source-atop', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle})
+    el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStrokeStyle}),
+      el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle}),
+      el.text({zIndex:9,scale:messageScale,globalCompositeOperation:'lighter', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle2})
     )
   }
 
 
   var flameSize=130;
-   var myImage = new el._util.generateRadialGradientBitmap("test",flameSize, "rgba(248,64,32,1)", "rgba(128,64,32,0)");
-   // var test= new el.image({id:"test",width:32,height:32})
+   var myImage = el._util.generateRadialGradientBitmap(el, "test",flameSize, "rgba(248,64,32,1)", "rgba(128,64,32,0)");
+   // var test= el.image({id:"test",width:32,height:32})
    var particles={obj:[],count:180}
    for(var i=0;i<particles.count;i++){
-     var smoke= new el.image({
+     var smoke= el.image({
        zIndex:4,
        id:"test",width:flameSize,height:flameSize,
        globalCompositeOperation:"lighter"}

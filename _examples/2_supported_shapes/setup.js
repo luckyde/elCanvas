@@ -4,17 +4,17 @@ function setup(){
   // create an instance
   this.el = new elCanvas(canvas_container,{AlignToCenter:true});
   // create an object
-  var rectangle = new el.rect()
-  var circle = new el.circle({x:-90})
+  var rectangle = el.rect()
+  var circle = el.circle({x:-90})
 
-  var line = new el.line({x1:140,y1:40,x2:100,y2:200})
+  var line = el.line({x1:140,y1:40,x2:100,y2:200})
 
-  var quadLine = new el.quadLine({x1:240,y1:240,qx:-50,qy:-50,x2:200,y2:150})
+  var quadLine = el.quadLine({x1:240,y1:240,qx:-50,qy:-50,x2:200,y2:150})
 
   // images need to be preloaded into the images list as base64 for them to work
-  var image = new el.image({id:'test'})
+  var image = el.image({id:'test'})
 
-  var shape = new el.shape({x:200,y:20})
+  var shape = el.shape({x:200,y:20})
   // a custom shape must be specified otherwise you will get errors
   shape.customShape=function(){
         el.ctx.beginPath()
