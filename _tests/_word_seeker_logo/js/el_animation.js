@@ -1,5 +1,4 @@
 function el_animation(el, params){
-
   //input
   var imageURLs=[
     {id:'h2',url:'images/heading_2.png'}  ,
@@ -14,6 +13,7 @@ function el_animation(el, params){
   ]
   //import
   el.importImages(imageURLs);
+
   //draw
 // gradients
 var center={x:el.width/2,y:el.height/2}
@@ -56,9 +56,8 @@ var strokeGrd = el.ctx.createLinearGradient(0,200,100,300);
     el.image({id:'s4',x:246,y:298,transformOrigin:"50% 98%"}),
     el.image({id:'s5',x:306,y:298,transformOrigin:"50% 98%"}),
     el.image({id:'s6',x:356,y:298,transformOrigin:"50% 98%"}),
-  ]
-
-  // function animate(){
+  ];
+  function animate(){
     var heading_tl =  new TimelineMax()
       .set(subheading,{scaleX:1,scaleY:1,opacity:1},0)
       .staggerFrom(heading,1,{scaleX:4,scaleY:0.3,ease:Elastic.easeOut.config(0.6,0.2)},0.1,0)
@@ -77,9 +76,8 @@ var strokeGrd = el.ctx.createLinearGradient(0,200,100,300);
         .add(easeOut,3)
 
         return bot_message_tl;
-  // }
-  // el.update()
+  }
+    el.onReady(animate);
 
-    // el.onImagesReady(animate);
 
 }
