@@ -12,8 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ModifiersPlugin.min.js"></script>
 
 	<!-- el canvas library -->
-	 <script src="../../lib/elCanvas2.js"></script>
-	<!--<script src="../../lib/elCanvas_test.js"></script>-->
+	<script src="../../../lib/elCanvas.js"></script>
 
 	<script src="js/setup.js"></script>
 
@@ -22,21 +21,21 @@
 	<script src="js/el_util_custom_shapes.js"></script>
 
 	<script src="js/el_animation.js"></script>
-
-	<style>
-		#elCanvas{
-			background:white;
+	<style media="screen">
+		#game{
+			background: url('images/bg.png');
+			width: 300px;
+			height: 300px;
 		}
 	</style>
+
 </head>
 <body>
 
 	<script> window.onload=setup;	</script>
 
 	<div id="game" class='game'>
-		<div  style="top: 0; left: 0; width: 100%; height: 100%; " class="view">
-			<canvas id="elCanvas" width="500" height="500"></canvas>
-		</div>
+			<canvas id="elCanvas" width="100" height="100"></canvas>
 	</div>
 
 
