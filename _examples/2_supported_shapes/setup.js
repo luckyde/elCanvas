@@ -5,6 +5,8 @@ function setup(){
   this.el = new elCanvas(canvas_container,{AlignToCenter:true});
   // create an object
   var rectangle = el.rect()
+  var rectangleWithRadius = el.rect({radius:20,x:120});
+  var rectangleWithPartialRadius = el.rect({radius:{tl:0,tr:0,bl:20,br:0},x:240});
   var circle = el.circle({x:-90})
 
   var line = el.line({x1:140,y1:40,x2:100,y2:200})
