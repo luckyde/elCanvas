@@ -1,5 +1,3 @@
-function gE(e){ return document.getElementById(e)};
-
 var canvas_container;
 
 function setup(){
@@ -11,22 +9,11 @@ function setup(){
     test_value:"Test123",
   }
 
-  this.el = new elCanvas(canvas_container, {images:[],AlignToCenter:true});
+  var el = new elCanvas(canvas_container, {images:[],AlignToCenter:true});
 
-  // create custom shapes for future use
-  this.customShapes = new el_util_custom_shapes(this.el);
+  el_animation(el);
 
-  var test_tl = new el_animation(this.el,dynamicInfo);
+	window.EL = el;
 
-  test_tl.eventCallback("onUpdate", drawFrame);
-  function drawFrame(event) {
-
-    // this is required in order to update the canvas
-    el.update();
-
-
-  }
-
-  canvas_container.addEventListener('click',function(){ test_tl.play(0);});
 
 }
