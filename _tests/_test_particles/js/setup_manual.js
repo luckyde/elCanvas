@@ -5,12 +5,17 @@ function setup_manual() {
 
 
   var flameSize=64;
-  var myImage = new el._util.generateRadialGradientBitmap("test",flameSize, "rgba(248,64,32,1)", "rgba(128,64,32,0)");
-  // var test= new el.image({id:"test",width:32,height:32})
+  var myImage = el.image({id:"test", width:flameSize, height:flameSize, globalCompositeOperation:"lighter",
+  radialGradient: {
+    size: flameSize,
+    inner: "rgba(248,64,32,1)",
+    outer:  "rgba(128,64,32,0)"
+  }})
+  // var test= el.image({id:"test",width:32,height:32})
   var particles={obj:[],count:180}
   for(var i=0;i<particles.count;i++){
     console.log('hi');
-    var smoke= new el.image({id:"test",width:flameSize,height:flameSize,y:300,globalCompositeOperation:"lighter"})
+    var smoke= el.image({id:"test",width:flameSize,height:flameSize,y:300,globalCompositeOperation:"lighter"})
     particles.obj.push( smoke );
   }
 

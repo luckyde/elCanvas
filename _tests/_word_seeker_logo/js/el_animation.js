@@ -1,16 +1,16 @@
 function el_animation(el, params){
   //input
-  var imageURLs=[
-    {id:'h2',url:'images/heading_2.png'}  ,
-    {id:'h3',url:'images/heading_3.png'}  ,
-    {id:'h4',url:'images/heading_4.png'}  ,
-    {id:'s1',url:'images/subheading_1.png'}  ,
-    {id:'s2',url:'images/subheading_2.png'}  ,
-    {id:'s3',url:'images/subheading_3.png'}  ,
-    {id:'s4',url:'images/subheading_4.png'}  ,
-    {id:'s5',url:'images/subheading_5.png'}  ,
-    {id:'s6',url:'images/subheading_6.png'}
-  ]
+  var imageURLs={
+      h2: 'images/heading_2.png',
+      h3: 'images/heading_3.png',
+      h4: 'images/heading_4.png',
+      s1: 'images/subheading_1.png',
+      s2: 'images/subheading_2.png',
+      s3: 'images/subheading_3.png',
+      s4: 'images/subheading_4.png',
+      s5: 'images/subheading_5.png',
+      s6: 'images/subheading_6.png'
+  }
   //import
   el.importImages(imageURLs);
 
@@ -57,7 +57,6 @@ var strokeGrd = el.ctx.createLinearGradient(0,200,100,300);
     el.image({id:'s5',x:306,y:298,transformOrigin:"50% 98%"}),
     el.image({id:'s6',x:356,y:298,transformOrigin:"50% 98%"}),
   ];
-  function animate(){
     var heading_tl =  new TimelineMax()
       .set(subheading,{scaleX:1,scaleY:1,opacity:1},0)
       .staggerFrom(heading,1,{scaleX:4,scaleY:0.3,ease:Elastic.easeOut.config(0.6,0.2)},0.1,0)
@@ -68,16 +67,17 @@ var strokeGrd = el.ctx.createLinearGradient(0,200,100,300);
       .staggerTo([outer,inner],0.8,{scale:0.001,rotation:45,ease:Elastic.easeIn.config(0.4,0.3)},0.1,0)
       .staggerTo([heading,subheading],0.58,{scaleX:0,scaleY:0,y:200,x:250,opacity:0,ease:Elastic.easeIn.config(0.4,0.3)},0.02,0.2)
 
-      var bot_message_tl= new TimelineMax({onUpdate:el.update})
+      var bot_message_tl= new TimelineMax({onUpdate:el.update,paused:true})
         .staggerFrom(outer,1,{rotation:40,ease:Elastic.easeOut.config(0.5,0.3),scale:0.6,opacity:0},0.1,0)
         .staggerFrom(inner,1,{rotation:90,ease:Elastic.easeOut.config(0.5,0.5),opacity:0},0.1,0.1)
         .add(heading_tl,0.1)
         .staggerFrom(subheading,1,{y:"-=150",scaleX:0,ease:Elastic.easeOut.config(0.5,0.2)},0.05,0.6)
         .add(easeOut,3)
 
-        return bot_message_tl;
-  }
-    el.onReady(animate);
+      el.ready().then(bot_message_tl.play());
+
+      return bot_message_tl;
+
 
 
 }

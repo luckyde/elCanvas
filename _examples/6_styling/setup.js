@@ -31,16 +31,16 @@ function animate(props){
 
   // create custom tile
   var makeTile = function(params) {
-    var shell=new this.el.rect({
+    var shell=this.el.rect({
     transformOrigin:"-00% 20%",zIndex:2,id:params.letter,numb:params.value,width:90,height:90,style:{fillStyle:"rgba(0,0,0,0)"}});
-    var bg_storke=new this.el.rect({scale:0,radius:Math.round(23),width:90,height:90,x:-90/2,y:-90/2,parent:shell,id:'tile',style:{fillStyle:this.styles.line_color}});
+    var bg_storke=this.el.rect({scale:0,radius:Math.round(23),width:90,height:90,x:-90/2,y:-90/2,parent:shell,id:'tile',style:{fillStyle:this.styles.line_color}});
     var bgStyle =     {fillStyle:this.normal_gradient,strokeStyle:this.styles.outline,lineWidth:this.styles.lineWidth}
-    var bg=new this.el.rect({width:90,height:90,x:-90/2,y:-90/2,parent:shell,radius:22,id:'tile',name:params.letter,style:bgStyle});
-    var reflection = new this.el.rect({ parent:bg  ,width:bg.width*0.75, height:bg.height*0.2,
+    var bg=this.el.rect({width:90,height:90,x:-90/2,y:-90/2,parent:shell,radius:22,id:'tile',name:params.letter,style:bgStyle});
+    var reflection = this.el.rect({ parent:bg  ,width:bg.width*0.75, height:bg.height*0.2,
       x:bg.width*0.125,radius:10,
       y:bg.height*0.1,parent:bg,style:{fillStyle:this.normal_gradient_highlight}})
-    var letter=new this.el.text({transformOrigin:"-50% 0%",parent:bg,x:43,y:73,text:params.letter, style:{font:"65px museo700",  fillStyle:"#4C1900"}})
-    var value=new this.el.text({parent:bg,x:74,y:26,text:params.value, style:{font:"22px museo500",  fillStyle:"#4C1900"}})
+    var letter=this.el.text({transformOrigin:"-50% 0%",parent:bg,x:43,y:73,text:params.letter, style:{font:"65px museo700",  fillStyle:"#4C1900"}})
+    var value=this.el.text({parent:bg,x:74,y:26,text:params.value, style:{font:"22px museo500",  fillStyle:"#4C1900"}})
     return [shell,bg,bg_storke];
   }
   makeTile({x:0,y:0,letter:"A",value:1})

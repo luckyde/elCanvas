@@ -6,7 +6,7 @@ function setup(){
 
   console.log(this.el);
   // create an object
-  var myCoolRectangle = new el.rect()
+  var myCoolRectangle = el.rect()
   // create a timeline, have the canvas update on update
   el.update()
   // var tl = new TimelineMax({onUpdate: el.update})

@@ -12,9 +12,9 @@ function animate(props){
   // create custom shapes for future use
   new el_util_custom_shapes(this.el);
 
-  var starShape = new el.shape({customShape:this.el.customShapes.starShape})
+  var starShape = el.shape({customShape:this.el.customShapes.starShape})
 
-  var bannerShape = new el.shape({y:50,customShape:this.el.customShapes.banner_50})
+  var bannerShape = el.shape({y:50,customShape:this.el.customShapes.banner_50})
 
 
   // create a timeline, have the canvas update on update
@@ -24,5 +24,5 @@ function animate(props){
 
 
   // link for interactive animation
-  canvas_container.addEventListener('click',function(){ test_tl.play(0);});
+  canvas_container.addEventListener('click',function(){ tl.play(0);});
 }

@@ -5,12 +5,16 @@ function setup_manual2() {
 
 
   var flameSize=32;
-  var myImage = new el._util.generateRadialGradientBitmap("test",flameSize, "rgba(204,86,151,1)", "rgba(204,86,151,0)");
-  // var test= new el.image({id:"test",width:32,height:32})
+  var myImage = el.image({id:"test", width:flameSize, height:flameSize, globalCompositeOperation:"lighter",
+  radialGradient: {
+    size: flameSize,
+    inner: "rgba(204,86,151,1)",
+    outer:  "rgba(204,86,151,0)"
+  }})
   var particles={obj:[],count:130}
   for(var i=0;i<particles.count;i++){
     console.log('hi');
-    var smoke= new el.image({id:"test",width:flameSize,height:flameSize,y:300,globalCompositeOperation:"lighter"})
+    var smoke= el.image({id:"test",width:flameSize,height:flameSize,y:300,globalCompositeOperation:"lighter"})
     particles.obj.push( smoke );
   }
 
@@ -28,10 +32,7 @@ function setup_manual2() {
   smokeTL.add(smoketeTl[i],i*0.018)
   }
 
-  TweenMax.ticker.addEventListener("tick", el.update);
-
-  // canvas.onmousemove = canvas.addEventListener("click", moveMouse, false);
-  // canvas.onmousemove = canvas.addEventListener("touchstart", startPos, false);
+  TweenMax.ticker.addEventListener("tick", el.update); 
 ;
 
 

@@ -30,6 +30,6 @@ function setup(){
 
 
   // link for interactive animation
-  canvas_container.addEventListener('click',function(){ test_tl.play(0);});
+  canvas_container.addEventListener('click',function(){ tl.play(0);});
 
 }

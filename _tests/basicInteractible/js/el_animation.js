@@ -15,7 +15,7 @@ function el_animation(el, params){
   var test_tls = new TimelineMax()
   var moveTweens=[]
   for(var i=0;i<objAmount;i++){
-    var rect = new el.rect(rectangle)
+    var rect = el.rect(rectangle)
     rect.x = Math.random()*stageSize.w
     rect.width=Math.random()*rectSize+rectSize
     rect.height=Math.random()*rectSize*1+rectSize
@@ -37,15 +37,15 @@ var moveTween =     TweenMax.to(rect,3,{y:stageSize.h*1.2,ease:Quad.easeIn},0)
   moveTweens.push(moveTween)
     test_tls.add(test_tl,Math.random()*(objAmount*0.01))
   }
-  // var text = new el.text({y:100,x:200,zIndex:4,text:'sdfkfsd',style:{ fillStyle:"#ff0000",font:"63px museo500"}})
+  // var text = el.text({y:100,x:200,zIndex:4,text:'sdfkfsd',style:{ fillStyle:"#ff0000",font:"63px museo500"}})
 
-  // var head = new el.image({id:'head',x:180,y:70,transformOrigin:"50% 90%"})
-  // var nose = new el.image({id:'nose',x:150,y:200,scale:1,parent:head,transformOrigin:"50% 50%"})
+  // var head = el.image({id:'head',x:180,y:70,transformOrigin:"50% 90%"})
+  // var nose = el.image({id:'nose',x:150,y:200,scale:1,parent:head,transformOrigin:"50% 50%"})
 
   //
-  // var circ = new el.circle()
-  // var rect = new el.rect({id:'rect',parent:circ})
-  // var rect2 = new el.rect({id:'rect2',parent:circ})
+  // var circ = el.circle()
+  // var rect = el.rect({id:'rect',parent:circ})
+  // var rect2 = el.rect({id:'rect2',parent:circ})
 // nose.rotation=90;
   var bot_message_tl= new TimelineMax({onUpdate:el.update})
   .add(test_tls,0)

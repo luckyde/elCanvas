@@ -7,21 +7,10 @@ function setup(){
   canvas_container = document.getElementById('elCanvas');
   canvas_container.width = canvas_container.parentNode.offsetWidth;
   canvas_container.height = canvas_container.parentNode.offsetHeight;
-   var imageURLs=[
-      {id:'background',url:'images/background.jpg'} ,
-      {id:'background2',url:'images/background.jpg'},
-      {id:'face',url:'images/face.png'},
-      {id:'ring',url:'images/ring_sprite.png'},
-      {id:'head',url:'images/head.png'},
-      {id:'nose',url:'images/nose.png'}
 
-
-
-  ]
-  var images = el_imageLoad(imageURLs,animate);
-
+animate()
 };
-function animate(props){
+function animate(){
 
   // edit this to edit the content on the page
   var dynamicInfo = {
@@ -31,7 +20,7 @@ function animate(props){
   /* create a el_canvas reference, which has the same properties as a canvas
   but allows chaining and has extra properties to help speed up drawing */
 
-  this.el = new elCanvas(canvas_container, {images:props,AlignToCenter:false});
+  this.el = new elCanvas(canvas_container, {AlignToCenter:false});
 
   // create custom shapes for future use
   this.customShapes = new el_util_custom_shapes(this.el);

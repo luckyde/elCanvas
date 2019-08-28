@@ -1,9 +1,16 @@
 function el_animation(el, params){
-  
-  var bg= new el.image({id:'background'})
-  var tile_bg= new el.image({id:'tile_bg'})
-  //
-
+  var imageURLs=
+     {background:'images/background.jpg',
+     tile_bg:'images/tile_bg.png',
+     tile:'images/tile.png',
+     user_l:'images/user_image_1.jpg',
+     right_img_1:'images/img_Like.png',
+     right_img_2:'images/img_Haha.png',
+     right_img_3:'images/img_Love.png',
+}
+el.importImages(imageURLs)
+  var bg=  el.image({id:'background'})
+  var tile_bg=  el.image({id:'tile_bg'})
   var tilesPos = [
     {x: 866, y: 272, scale:0.745}
     ,{x: 1076, y: 66, scale:0.5}
@@ -27,12 +34,12 @@ function el_animation(el, params){
     tiles.push(tile,tile2,tile3)
   }
    var get_ready_pos = {x:366,y:470}
-  var txt_just_shadow = new el.text({ x: get_ready_pos.x, y: get_ready_pos.y, text:params.heading,style:{font:"90px museo700",   textAlign:"left", fillStyle:"rgba(0,0,0,0.5)"}})
-  var txt_just = new el.text({ x:  get_ready_pos.x-5, y: get_ready_pos.y-5, text:params.heading,style:{font:"90px museo700",   textAlign:"left", fillStyle:"white"}})
+  var txt_just_shadow =  el.text({ x: get_ready_pos.x, y: get_ready_pos.y, text:params.heading,style:{font:"90px museo700",   textAlign:"left", fillStyle:"rgba(0,0,0,0.5)"}})
+  var txt_just =  el.text({ x:  get_ready_pos.x-5, y: get_ready_pos.y-5, text:params.heading,style:{font:"90px museo700",   textAlign:"left", fillStyle:"white"}})
 
-  var user_picture= new el.image({x:42,y:204,id:'user_l',rounded:90 ,scale:1,style:{lineWidth:9,strokeStyle:"#ffffff"}})
+  var user_picture=  el.image({x:42,y:204,id:'user_l',rounded:90 ,scale:1,style:{lineWidth:9,strokeStyle:"#ffffff"}})
 
-  var smileys = [new el.image({x: 936, y: 470,id:'right_img_1'}), new el.image({x: 1116, y: 372,id:'right_img_3'}), new el.image({x: 1042, y: 436,id:'right_img_2'})]
+  var smileys = [ el.image({x: 936, y: 470,id:'right_img_1'}),  el.image({x: 1116, y: 372,id:'right_img_3'}),  el.image({x: 1042, y: 436,id:'right_img_2'})]
 
   var elements= [bg,tile_bg]
 
@@ -54,12 +61,14 @@ function el_animation(el, params){
 
   // .to(tile,3,{scale_tl:1,yoyo:true,repeat:-1})
 
-  var bot_message_tl= new TimelineMax()
+  var bot_message_tl= new TimelineMax({paused:true})
   .from(tile_bg,1,{y:-400,ease:Power2.easeOut},0)
   .from(user_picture,0.7,{y:570,ease:Back.easeOut.config(1.2)},0.3)
   .staggerFrom([txt_just,txt_just_shadow],1,{y:"+=600",ease:Back.easeOut.config(0.5)},0.02,0.1)
   .staggerFrom(smileys,1,{x:"+=30",y:"+=200",ease:Elastic.easeOut.config(0.5,0.3)},0.2,0)
   .add(tile_tls,-1)
+
+  el.ready().then(bot_message_tl.play())
   return bot_message_tl;
 }
 
@@ -72,10 +81,10 @@ function makeTile(el,props){
     var size = props.scale_tl;
     var letterPx = 140;
     var scorePx = 46;
-        // var tile = new el.image({id:'tile',x: tilePos.x, scale_tl:3,y: tilePos.y,width:200*size,height:198*size})
-        var tile = new el.image({id:'tile',x: tilePos.x, scale_tl:props.scale_tl,y: tilePos.y,width:200 ,height:198 })
-        var tile_text = new el.text({text:letters_txt,x: tilePos.x+100*size, y: tilePos.y +150*size , scale:size, style:{font:"bold " + letterPx + "px " + fam,  textAlign:"center",   fillStyle:"#39180B"}})
-         var tile_text_score = new el.text({text:letters_numb,x: tilePos.x+180*size, y: tilePos.y+50*size, scale:size ,style:{font:"" + scorePx + "px " + fam, textAlign:"right",  fillStyle:"#39180B"}})
+        // var tile =  el.image({id:'tile',x: tilePos.x, scale_tl:3,y: tilePos.y,width:200*size,height:198*size})
+        var tile =  el.image({id:'tile',x: tilePos.x, scale_tl:props.scale_tl,y: tilePos.y,width:200 ,height:198 })
+        var tile_text =  el.text({text:letters_txt,x: tilePos.x+100*size, y: tilePos.y +150*size , scale:size, style:{font:"bold " + letterPx + "px " + fam,  textAlign:"center",   fillStyle:"#39180B"}})
+         var tile_text_score =  el.text({text:letters_numb,x: tilePos.x+180*size, y: tilePos.y+50*size, scale:size ,style:{font:"" + scorePx + "px " + fam, textAlign:"right",  fillStyle:"#39180B"}})
         return [tile,tile_text,tile_text_score]
 
 

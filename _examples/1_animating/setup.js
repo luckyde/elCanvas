@@ -4,8 +4,8 @@ function setup(){
   // create an instance
   this.el = new elCanvas(canvas_container);
   // create an object
-  var myCoolRectangle = new el.rect({x:0,zIndex:2,y:200})
-  var myCoolRectangle = new el.rect({x:35,y:201,zIndex:1,style:{fillStyle:"red"}})
+  var myCoolRectangle = el.rect({x:0,zIndex:2,y:200})
+  var myCoolRectangle = el.rect({x:35,y:201,zIndex:1,style:{fillStyle:"red"}})
   // create a timeline, have the canvas update on update
   var tl = new TimelineMax({onUpdate: el.update})
   .to(myCoolRectangle,1,{x:500,ease:Expo.easeInOut,yoyo:true,repeat:-1})
@@ -24,6 +24,6 @@ function setup(){
 
 
   // link for interactive animation
-  canvas_container.addEventListener('click',function(){ test_tl.play(0);});
+  canvas_container.addEventListener('click',function(){ tl.play(0);});
 
 }

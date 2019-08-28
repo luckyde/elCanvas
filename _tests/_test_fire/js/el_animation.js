@@ -1,12 +1,16 @@
 function el_animation(el, params){
 
   var style_userBorder = {lineWidth:15,strokeStyle:"#ffffff"};
-  var user = new el.image({x:-150,y:-80,id:"user",rounded:40,zIndex:2,style:style_userBorder})
+  var user = el.image({x:-150,y:-80,id:"user",url:"images/user_image_1.jpg",rounded:40,zIndex:2,style:style_userBorder})
 
   var flameSize=64;
-  var flameIMG = new el._util.generateRadialGradientBitmap("flame",flameSize, "rgba(128,64,10,1)", "rgba(128,64,32,0)");
-
-
+  var flameIMG = el.image({id:"flame", width:flameSize, height:flameSize,
+  			radialGradient: {
+  				size: flameSize,
+  				inner: "rgba(128,64,10,1)",
+  				outer:  "rgba(128,64,32,0)"
+  			}
+  		});
   var user={x:user.x+130,y:user.y+110,width:330,height:250}
 
 
@@ -18,7 +22,7 @@ function el_animation(el, params){
           // (x,y) is inside the circle
           // console.log(x,y);
           allPins.push(
-             new el.image({scale:0.3+Math.random()*2,x:user.x,y:user.y,id:"flame",width:flameSize,height:flameSize,globalCompositeOperation:"lighter"})
+             el.image({scale:0.3+Math.random()*2,x:user.x,y:user.y,id:"flame",width:flameSize,height:flameSize,globalCompositeOperation:"lighter"})
           )
       }
   }
@@ -40,19 +44,10 @@ function el_animation(el, params){
     smokeTL.add(smoketeTl[i],startTime)
   }
 
-  // .set(particles.obj,{x:1,y:1,
-  //   modifiers: {
-  //       x:  xOffset,
-  //       y:  yOffset
-  //     }
-  //     },0)
-  // .to(particles.obj,1,{y:-200},0)
-  // var flame =
+  var bot_message_tl= new TimelineMax({paused:true,onUpdate:el.update})
+  .add(smokeTL,0);
 
-  var bot_message_tl= new TimelineMax({onUpdate:el.update})
-  .add(smokeTL,0)
-  // .to(rect,2,{rotation:11,x:180,scaleX:2},0)
-
+  el.ready().then(bot_message_tl.play())
 
   return bot_message_tl;
 }

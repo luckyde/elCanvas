@@ -46,7 +46,7 @@ function animate(props){
       el.update();
   }).start();
   // add a square
-  var elSquare=new el.rect({x:200,y:80,center:{x:-50,y:-50},style:{fillStyle:getRandomColor()}});
+  var elSquare=el.rect({x:200,y:80,center:{x:-50,y:-50},style:{fillStyle:getRandomColor()}});
   var physics_square = Physics.body('rectangle',{
     el_obj:elSquare,
     x: elSquare.x,
@@ -59,7 +59,7 @@ function animate(props){
   world.add(physics_square);
 
   // add a sprite which acts like a circle
-  var elSprite=new el.sprite({x:300,width:64,height:64,center:{x:-32,y:-32},frameIn:0,frameOut:22,fps:12,id:'ring_sprite', zIndex:2,playing:'on'})
+  var elSprite=el.sprite({x:300,width:64,height:64,center:{x:-32,y:-32},frameIn:0,frameOut:22,fps:12,id:'ring_sprite', zIndex:2,playing:'on'})
   var physics_sprite = Physics.body('circle',{
     el_obj:elSprite,
     x: elSprite.x,
@@ -73,7 +73,7 @@ function animate(props){
   function addCircle(){
     var size=Math.random()*20+10;
     var velocity= {x:Math.random()*0.3, y:Math.random()}
-    var elCircle=new el.circle({x:200,y:80,radius:size,style:{fillStyle:getRandomColor()}});
+    var elCircle=el.circle({x:200,y:80,radius:size,style:{fillStyle:getRandomColor()}});
 
     var physicsCircle = world.add( Physics.body('circle', {
         el_obj:elCircle,
