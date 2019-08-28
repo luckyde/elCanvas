@@ -11,9 +11,11 @@ function el_animation(el, params){
 
   // creation
   var bgY= -el.height*0.1;
-  var bg=el.image({zIndex:8,width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
-  var bgFake= el.image({opacity:0,zIndex:9,globalCompositeOperation:'source-atop',width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
+  //var bg=el.image({zIndex:8,width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
+  //var bgFake= el.image({opacity:0,zIndex:9,globalCompositeOperation:'source-atop',width:el.images[sticker_img].width,height:el.images[sticker_img].height,x:- el.images[sticker_img].width/2,y:bgY+-el.images[sticker_img].height/2,id:'dinasour'})
   // console.log(el.height);
+  var bg = el.image({zIndex: 8, id: "dinosaur", url: "images/dino_big.png", x: -330, y: bgY - 200 });
+	var bgFake = el.image({opacity: 0, zIndex: 9, globalCompositeOperation: "source-atop", id: "dinosaur", x: -330, y: bgY - 200});
 var textY= el.height*0.28;
 
 var textStrokeStyle = {font:fontSize+"px museo900",lineWidth:16,fillStyle:"rgba(0,0,0,0.5)",strokeStyle:"#ffffff"}
@@ -24,8 +26,6 @@ var messageText = [];
     var message = sticker_msg[msg]
     var messageScale = 15/(message.length+6);
     messageText.push(
-      // el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'xor',y:textY + (fontSize*msg+3)*messageScale,text:message,style:textStrokeStyle}),
-      // el.text({zIndex:3,scale:messageScale,globalCompositeOperation:'source-atop', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle})
     el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStrokeStyle}),
       el.text({zIndex:1,scale:messageScale, y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle}),
       el.text({zIndex:9,scale:messageScale,globalCompositeOperation:'lighter', y:textY + (fontSize*msg)*messageScale,text:message,style:textStyle2})
@@ -34,8 +34,11 @@ var messageText = [];
 
 
   var flameSize=130;
-   var myImage = el._util.generateRadialGradientBitmap(el, "test",flameSize, "rgba(248,64,32,1)", "rgba(128,64,32,0)");
-   // var test= el.image({id:"test",width:32,height:32})
+   var test= el.image({id:"test",width:32,height:32, radialGradient: {
+	 	size: flameSize,
+		inner: "rgba(248,64,32,1)",
+		outer: "rgba(128,64,32,0)"
+	 }});
    var particles={obj:[],count:180}
    for(var i=0;i<particles.count;i++){
      var smoke= el.image({
