@@ -7,19 +7,9 @@ function setup(){
   canvas = document.getElementById('elCanvas');
   // canvas_container.width = canvas_container.parentNode.offsetWidth;
   // canvas_container.height = canvas_container.parentNode.offsetHeight;
-   var imageURLs=[
-      {id:'background',url:'images/background.jpg'},
-         {id:'ring_sprite',url:'images/ring_sprite.png'}
 
 
-  ]
-  var images = el_imageLoad(imageURLs,animate);
-  // animate();
-
-};
-function animate(props){
-
-    this.el = new elCanvas(canvas, {images:props,AlignToCenter:false});
+    this.el = new elCanvas(canvas, {AlignToCenter:false});
 
   var world = Physics();
   var renderer = Physics.renderer('elCanvas', {

@@ -7,23 +7,6 @@ function setup(){
   canvas_container = document.getElementById('elCanvas');
   canvas_container.width = canvas_container.parentNode.offsetWidth;
   canvas_container.height = canvas_container.parentNode.offsetHeight;
-   var imageURLs=[
-      {id:'Text_sprite',url:'fonts/font4/Text_sprite.png'} ,
-
-
-
-  ]
-  var images = el_imageLoad(imageURLs,animate);
-
-};
-function animate(props){
-
-  // setup canvas information
-  /* create a el_canvas reference, which has the same properties as a canvas
-  but allows chaining and has extra properties to help speed up drawing */
-
-
-
   var treeData;
 
  var oReq = new XMLHttpRequest();
@@ -33,8 +16,7 @@ function animate(props){
 
  function reqListener(e) {
      treeData = JSON.parse(this.responseText);
-     el = new elCanvas(canvas_container, {images:props,spriteFonts:[treeData],AlignToCenter:false});
-     console.log(el);
+     el = new elCanvas(canvas_container, {spriteFonts:[treeData],AlignToCenter:false}); 
      var test_tl = new el_animation(el);
 
  }
