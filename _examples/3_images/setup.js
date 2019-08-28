@@ -17,10 +17,10 @@ function setup(){
   // create an instance
   this.el = new elCanvas(canvas_container,{AlignToCenter:true});
 
-  
+
   // importing via image object
   el.importImages({head:'head.png'})
-  var imageViaID = el.image({id:'head'})
+  var imageViaID = el.image({debug:1,id:'head'})
   //instancing test via ID
   var imageViaID_instance = el.image({x:-400,id:'head'})
 
@@ -28,14 +28,12 @@ function setup(){
   var imageViaURL = el.image({x:170,y:240,id:'nose',url:'nose.png'})
   //instancing test via URL
   var imageViaURL_instance = el.image({x:170-400,y:240,id:'nose'})
-
-  function animate(){
-      var tl = new TimelineMax({onUpdate: el.update})
-  }
+  var  tl = new TimelineMax({onUpdate: el.update,paused:true})
+    .to(imageViaID,10,{scaleX:1.3,rotation:90})
 
   //when using images, you should wait for the images to load in order to start animating
-  el.ready().then(animate);
+  el.ready().then(tl.play());
 
   // link for interactive animation
-  canvas_container.addEventListener('click',function(){ test_tl.play(0);});
+  canvas_container.addEventListener('click',function(){ tl.play(0);});
 }
