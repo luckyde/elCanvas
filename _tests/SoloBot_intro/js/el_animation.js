@@ -91,7 +91,7 @@ function el_animation(el, params){
   .to(bodyNull,1.8,{rotation:0,ease:Expo.easeInOut},'headnod_right')
   .to(arm_upper_l,1,{rotation:0,ease:Expo.easeInOut},'headnod_right')
   .to(arm_lower_l,1.4,{rotation:0,ease:Expo.easeInOut},'headnod_right+=0.3')
-
+  
   var bot_message_tl= new TimelineMax({onUpdate:el.update,paused:true})
 
   .add(bot_message_enter,0.1)

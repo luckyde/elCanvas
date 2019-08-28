@@ -2,13 +2,13 @@ function setup(){
   //declare  where the canvas goes
   var canvas_container = document.getElementById('elCanvas');
   // create an instance
-  this.el = new elCanvas(canvas_container,{AlignToCenter:true});
+  my_el = new elCanvas(canvas_container,{AlignToCenter:true});
 
-  console.log(this.el);
+  console.log(my_el);
   // create an object
-  var myCoolRectangle = el.rect()
+  var myCoolRectangle = my_el.rect()
   // create a timeline, have the canvas update on update
-  el.update()
+  my_el.update()
   // var tl = new TimelineMax({onUpdate: el.update})
 
   // link for interactive animation
