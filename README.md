@@ -123,6 +123,7 @@ skewX, skewY | yes
 scaleX, ScaleY | yes (But only if NOT animating scale, and vice-versa)
 rotation | yes
 opacity | yes
+mask | yes
 skew | no
 parent | yes(specify only another el object)
 globalcompositeoperation | yes
@@ -193,7 +194,7 @@ ElCanvas supports chaining of canvas events to reduce code, so if you wish to dr
 
 ## Parenting
 
-When you give a child a parent node it will react as if the parent is the world acess basis, it will rotate, and move based off it as well as if you move the parent the child will follow. Currently opacity isn't supported by parenting, but i'm working on making that work
+When you give a child a parent node it will react as if the parent is the world access basis, it will rotate, and move based off it as well as if you move the parent the child will follow. Currently opacity isn't supported by parenting, but i'm working on making that work
 
 example of parenting:
 
@@ -206,6 +207,15 @@ example of parenting:
     var tl = new TimelineMax({onUpdate: el.update})
     // when the parent moves the child moves
     .to(red_limb,1,{rotation:90})
+
+## Masking
+
+To mask specify mask as a parameter , using a previously made shape e.g.
+    var testMask = el.rect({x:50,y:200,rotation:45,style:{fillStyle:'red'}})
+    var toBeMasked = el.rect({x:0,y:60,mask:testMask,parent:testMask,style:{fillStyle:"blue"}})
+If you want to reverse mask, just add inverseMask:true e.g.
+    var square = el.rect({x:200,y:250,style:{fillStyle:"rbga(44,44,44,1)",strokeStyle:"#BDC6D1",lineWidth:3}})
+    var squareSmol = el.rect({parent:square,x:20,scale:0.5,mask:square,inverseMask:true,opacity:1,style:{fillStyle:"red"}})
 
 ## Styling
 ElCanvas takes the same styling properties as canvas itself, under the styles tab you can put as many as you'd like e.g.
