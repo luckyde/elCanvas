@@ -211,9 +211,12 @@ example of parenting:
 ## Masking
 
 To mask specify mask as a parameter , using a previously made shape e.g.
+
     var testMask = el.rect({x:50,y:200,rotation:45,style:{fillStyle:'red'}})
     var toBeMasked = el.rect({x:0,y:60,mask:testMask,parent:testMask,style:{fillStyle:"blue"}})
+
 If you want to reverse mask, just add inverseMask:true e.g.
+
     var square = el.rect({x:200,y:250,style:{fillStyle:"rbga(44,44,44,1)",strokeStyle:"#BDC6D1",lineWidth:3}})
     var squareSmol = el.rect({parent:square,x:20,scale:0.5,mask:square,inverseMask:true,opacity:1,style:{fillStyle:"red"}})
 
