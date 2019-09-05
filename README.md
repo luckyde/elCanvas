@@ -26,7 +26,7 @@ Examples of pure canvas animation:
 
 (Check out the tests folder and examples folder for more examples)
 
-I've been trying to push how much I can animate in very little filesize for a long time, and while DOM and SVGs are pretty good i never could get the same performance results as when I was animating in a canvas context. So I built this mini library so that I can have a sudo object system where you animate your objects e.g. var mycircle = new el.circle() and on update() it updates the canvas context with its properties. It works with whatever animation tech you want as long as you feed into the loop the update() function.
+I've been trying to push how much I can animate in very little filesize for a long time, and while DOM and SVGs are pretty good i never could get the same performance results as when I was animating in a canvas context. So I built this mini library so that I can have a sudo object system where you animate your objects e.g. var mycircle = el.circle() and on update() it updates the canvas context with its properties. It works with whatever animation tech you want as long as you feed into the loop the update() function.
 
 I chose GSAP since I could directly feed the update refresher into a timeline like this
 var myCanvasTimeline = new TimelineMax({onUpdate:el.update})
@@ -46,7 +46,7 @@ create an instance
 
 create an object
 
-    var myCoolRectangle = new el.rect()
+    var myCoolRectangle = el.rect()
 
 call an update function to draw the frame
 
@@ -80,9 +80,9 @@ You can animate the objects the same way you animate dom elements, using most of
 
 Would animate this the same way you would animate it in dom
 ### Types of shapes
-below are the currently supported shape types. Remember to create them with new el.type e.g.
+below are the currently supported shape types. Remember to create them with el.type e.g.
 
-`var myCircle = new el.circle({x:20, y:20, radius:50 ,style: {fillStyle'red'}});`
+`var myCircle = el.circle({x:20, y:20, radius:50 ,style: {fillStyle'red'}});`
 
 ID | Type
 ------------ | -------------
@@ -96,7 +96,7 @@ shape() | custom shape, pass in custom shape data, see below for example
 
 Custom shape example parameters
 
-        var shape = new el.shape({x:200,y:20});
+        var shape = el.shape({x:200,y:20});
         shape.customShape=function(){
           el.ctx.beginPath()
           .moveTo(0,17).lineTo(17,15).lineTo(24,0).lineTo(31,15).
@@ -109,7 +109,7 @@ Custom shape example parameters
 
 
 These can be used in animation or in creation e.g.
-`var myCircle = new el.circle({x:30,y:30})`
+`var myCircle = el.circle({x:30,y:30})`
 or
 `TweenMax.to(myCircle,1,{x:20,y:100,rotation:30})`
 
@@ -135,40 +135,40 @@ debug | shows the center position of the object, change it with transformOrigin(
 ### Types of shapes
 (please keep in mind the x and y positions are always optional)
 ##### Rectangle
-    var rectangle = new el.rect()
+    var rectangle = el.rect()
 
 ##### Circle
 
-    var circle = new el.circle({x:-90})
+    var circle = el.circle({x:-90})
 
   ##### Text
 
-    var mytext = new el.text({text:"good day eh"})
+    var mytext = el.text({text:"good day eh"})
 
   ##### Line
 
-    var line = new el.line({x1:140,y1:40,x2:100,y2:200})
+    var line = el.line({x1:140,y1:40,x2:100,y2:200})
 
   ##### QuadLine(see quadraticcurveto in the canvas mdn)
 
-    var quadLine = new el.quadLine({x1:240,y1:240,qx:-50,qy:-50,x2:200,y2:150})
+    var quadLine = el.quadLine({x1:240,y1:240,qx:-50,qy:-50,x2:200,y2:150})
 
   ##### image
 
   images need to be preloaded into the images list as base64 for them to work
 
-    var image = new el.image({id:'test'})
+    var image = el.image({id:'test'})
 
   ##### svg
 
 
     var hatPoints = "M58.2,81c0,0-3.1-29.6-3.5-75.4c0,0,73.2-18.9,141.5,12.3l-10.6,71l55.5,16.4c0,0-75.4,58.9-241.2-15.1L58.2,81z";
-    var hatShape = new el.svg({points:hatPoints,style:{fillStyle:"blue"}});
+    var hatShape = el.svg({points:hatPoints,style:{fillStyle:"blue"}});
 
 
  ##### shape
 
-    var shape = new el.shape({x:200,y:20})
+    var shape = el.shape({x:200,y:20})
 
   a custom shape must be specified otherwise you will get errors
 
@@ -197,10 +197,10 @@ When you give a child a parent node it will react as if the parent is the world 
 
 example of parenting:
 
-    var red_limb = new el.rect({transformOrigin:"100% 50%" ,y:300,width:300,x:-200,height:50,style:{fillStyle:'red'}})
+    var red_limb = el.rect({transformOrigin:"100% 50%" ,y:300,width:300,x:-200,height:50,style:{fillStyle:'red'}})
 
     // create a child, linking it to the parent, it's word space is now based off the parent
-    var blue_limb = new el.rect({parent:red_limb,width:50,height:200,style:{fillStyle:'blue'}})
+    var blue_limb = el.rect({parent:red_limb,width:50,height:200,style:{fillStyle:'blue'}})
 
     // create a timeline, have the canvas update on update
     var tl = new TimelineMax({onUpdate: el.update})
@@ -210,7 +210,7 @@ example of parenting:
 ## Styling
 ElCanvas takes the same styling properties as canvas itself, under the styles tab you can put as many as you'd like e.g.
 
-	var myCoolText = new el.text({x:0,y:20, text:"hihi", style:{font:"65px museo700",  fillStyle:"#4C1900"}})
+	var myCoolText = el.text({x:0,y:20, text:"hihi", style:{font:"65px museo700",  fillStyle:"#4C1900"}})
 
 or premake the style and apply it like this
 
@@ -227,9 +227,9 @@ such as
 
     new el_util_custom_shapes(this.el);
 
-    var starShape = new el.shape({customShape:this.el.customShapes.starShape})
+    var starShape = el.shape({customShape:this.el.customShapes.starShape})
 
-    var bannerShape = new el.shape({y:50,customShape:this.el.customShapes.banner_50})
+    var bannerShape = el.shape({y:50,customShape:this.el.customShapes.banner_50})
 
 
 
