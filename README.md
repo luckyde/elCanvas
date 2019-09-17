@@ -2,7 +2,7 @@
 # elCanvas
 A lightweight library to support basic canvas shape drawing while having an object list you can control!
 
-Filesize of minified library: **18kb**
+Filesize of minified library: **16kb**
 
 Feel free to post feedback and improvement suggestions, pull, modify as you wish :)
 
