@@ -48,9 +48,9 @@ function setup(){
   });
   world.add(physics_square);
 
-  // add a sprite which acts like a circle
-  var elSprite=el.sprite({x:300,width:64,height:64,center:{x:-32,y:-32},frameIn:0,frameOut:22,fps:12,id:'ring_sprite', zIndex:2,playing:'on'})
-  var physics_sprite = Physics.body('circle',{
+  // add a circle which acts like a circle
+  var elSprite=el.circle({x:300,width:64,height:64,center:{x:-32,y:-32},frameIn:0,frameOut:22,fps:12,id:'ring_circle', zIndex:2,playing:'on'})
+  var physics_circle = Physics.body('circle',{
     el_obj:elSprite,
     x: elSprite.x,
     y: elSprite.y,
@@ -58,7 +58,7 @@ function setup(){
     vx:0.3
 
   });
-  world.add(physics_sprite);
+  world.add(physics_circle);
 
   function addCircle(){
     var size=Math.random()*20+10;
@@ -75,7 +75,7 @@ function setup(){
     }));
   };
 
-  var circles=20;
+  var circles=400;
   for(var z=0;z<circles;z++){
     addCircle();
   };

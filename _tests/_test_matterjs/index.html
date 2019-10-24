@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Preview</title>
+	<meta charset='utf-8'>
+	<meta name='author' content='Lucky'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
+ 	<link rel="stylesheet" href="css/setup.css" type="text/css" charset="utf-8" />
+	<!-- needed GSAP library,plus modifiers plugin-->
+	<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/ModifiersPlugin.min.js"></script>
+
+	<!-- el canvas library -->
+	 <script src="../../../lib/elCanvas.js"></script>
+	<!--<script src="../../../lib/elCanvas.js"></script>-->
+	<script src="js/matter.min.js" ></script>
+
+	<script src="js/setup.js"></script>
+
+	<!-- <script src="js/el_util_star_burst.js"></script> -->
+
+	<script src="js/el_util_custom_shapes.js"></script>
+
+	<script src="js/el_animation.js"></script>
+
+	<style>
+		#elCanvas{
+			background:white;
+		}
+		#matterCanvas{
+			left:800px;
+		}
+	</style>
+</head>
+<body>
+
+	<script> window.onload=setup;	</script>
+
+			<canvas id="elCanvas" width="800" height="800"></canvas>
+			<canvas id="matterCanvas" width="500" height="500"></canvas>
+
+</body>
+</html>
